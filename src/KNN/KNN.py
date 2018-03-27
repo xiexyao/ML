@@ -5,7 +5,7 @@ def loadDataset():
 	# 处理训练数据集
 	trainDataset = []
 	trainLabel = []
-	trainParentPath = "./data/trainingDigits" # 训练数据集位置
+	trainParentPath = "/Users/Fei/Documents/work/ML/data/KNN/trainingDigits" # 训练数据集位置
 	trainParentList = os.listdir(trainParentPath)
 	# 循环训练数据集中的每一个文件，文件名是有类名_序号构成
 	for trainFile in trainParentList:
@@ -20,7 +20,7 @@ def loadDataset():
 	# 处理测试数据集
 	testDataset = []
 	testLabel = []
-	testParentPath = "./data/testDigits" # 测试训练集位置
+	testParentPath = "/Users/Fei/Documents/work/ML/data/KNN/testDigits" # 测试训练集位置
 	testParentList = os.listdir(testParentPath)
 	for testFile in testParentList:
 		testLabel.append(testFile.split("_")[0])
@@ -36,7 +36,7 @@ def distance(datasetX, datasetY):
 	return np.sqrt(np.sum(np.power(np.array(datasetX).ravel() - np.array(datasetY).ravel(),2)))
 
 if __name__ == '__main__':
-	k = 10
+	k = 20
 	trainDataset, trainLabel, testDataset, testLabel = loadDataset()
 	errCount = 0
 	for index, tempTestData in enumerate(testDataset): #循环每一个测试集的数据
